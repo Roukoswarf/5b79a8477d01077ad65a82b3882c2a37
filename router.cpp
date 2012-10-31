@@ -122,33 +122,36 @@ class Que : Stack { // Que is pretty much a stack except for how it pushes
 class GraphNode {
     GraphNode(T* data) {
         this->data = data;
+        linkCount = 0;
     }
     
-    ~GraphNode()
+    ~GraphNode();
+    
+    GraphNode* addChild(GraphNode* child);
 
-    GraphNode** links
-    T* data
-    unsigned short int linkCount
+    GraphNode** links;
+    T* data;
+    unsigned short int linkCount;
 };
 
 class Router{
-    Router(unsigned short int)
+    Router(unsigned short int);
 
     // All these change both sides of link
-    bool addLink(Router*)
-    bool dropLink(Router*)
-    bool upLink(Router*)
-    bool downLink(Router*)
+    bool addLink(Router* router);
+    bool dropLink(Router* router);
+    bool upLink(Router* router);
+    bool downLink(Router* router);
 
-    float distTo(unsigned short int)
-    unsigned short int name()
+    float distTo(unsigned short int routerName);
+    unsigned short int name();
 
-    GraphNode* spf()
-    GraphNode* bellman()
-    GraphNode* kruskal()
-    GraphNode* prim()
-    Link* aStar(Router*)
+    GraphNode* spf();
+    GraphNode* bellman();
+    GraphNode* kruskal();
+    GraphNode* prim();
+    Link* aStar(Router* destRouter);
 
-    short int linkTo[23]
-    GraphNode links
+    short int linkTo[23];
+    GraphNode links;
 };
