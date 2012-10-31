@@ -84,20 +84,20 @@ class Stack {
         Link* tmp = new Link(data);
         tmp->next = front;
         tmp->prev = NULL;
-        
+
         front->prev = tmp;
         front = tmp;
-        
+
         return data;
     }
-    
+
     T* pop() {
         T* ret = front->data;
-    
+
         front = front->next;
         delete front->prev;
         front->prev = NULL;
-        
+
         return ret;
     }
 
@@ -124,18 +124,27 @@ class GraphNode {
         this->data = data;
         linkCount = 0;
     }
-    
-    ~GraphNode();
-    
-    GraphNode* addChild(GraphNode* child);
 
-    GraphNode** links;
+    ~GraphNode() {
+        while (linkCount != 0)
+            delete link[--linkCount];
+    }
+
+    GraphNode* addChild(T* child) {
+        GarphNode[linkCount++] = new GraphNode(T*);
+    }
+
+    GraphNode** link;
     T* data;
     unsigned short int linkCount;
 };
 
 class Router{
-    Router(unsigned short int);
+    Router(unsigned short int routerName) {
+        linkTo = {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2} // All routers are dissconnected
+        linkTo[routerName] = -1; // I am me... Duh!
+        links = new GraphNode(this);
+    }
 
     // All these change both sides of link
     bool addLink(Router* router);
@@ -153,5 +162,5 @@ class Router{
     Link* aStar(Router* destRouter);
 
     short int linkTo[23];
-    GraphNode links;
+    GraphNode* links;
 };
