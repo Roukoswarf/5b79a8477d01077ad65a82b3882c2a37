@@ -1,0 +1,13 @@
+These be x86 only libs, included for windows compile usage.
+
+Keller, as you and I will be developing on Linux, please grab your distro equiv:
+
+Packages:
+
+extra/sdl_image 1.2.12-2
+extra/sdl_gfx 2.0.24-1
+extra/sdl_ttf 2.0.11-2
+
+
+I have properly set up the includes for these to only look locally
+(for the windows versions) when compiling on windows for jeff/prof.

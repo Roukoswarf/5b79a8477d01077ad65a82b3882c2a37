@@ -1,0 +1,9 @@
+#!/bin/bash
+
+g++ -o engine engine.cpp -lSDL_gfx -lSDL -lSDL_ttf
+
+#please add to compile line as needed.
+
+#For windows, you are on your own, you SHOULD be able to just compile without
+#flags, unless previously it was visual studio sorcery, and in that case:
+#YU IS ON U OWN BISH
